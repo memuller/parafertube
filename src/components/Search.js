@@ -1,5 +1,6 @@
 import React from 'react'
-import { Form, FormControl, InputGroup, Button } from 'react-bootstrap'
+import { Form, FormControl, InputGroup, Button, Spinner } from 'react-bootstrap'
+import MaterialIcon from 'material-icons-react'
 
 class Search extends React.Component {
 
@@ -7,9 +8,11 @@ class Search extends React.Component {
     return (
       <Form>
         <InputGroup>
-          <FormControl type="text" placeholder="Search"/>
+          <FormControl type="text" placeholder="search videos"/>
           <InputGroup.Append>
-            <Button >Search</Button>
+            <Button className="py-0" variant="outline-light">
+    <MaterialIcon icon="search" size="small" invert preloader={<Spinner animation="border" variant="light" size="sm" as="span"/>}/>
+            </Button>
           </InputGroup.Append>
         </InputGroup>
       </Form>

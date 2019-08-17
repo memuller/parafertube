@@ -1,22 +1,29 @@
 import React from 'react';
 import './App.scss';
 
-import { Navbar, Row, Col, Container } from 'react-bootstrap'
+import { Row, Col, Container } from 'react-bootstrap'
+import MaterialIcon from 'material-icons-react'
 
 import Search from './components/Search'
 
 function App() {
   return (
     <div className="App">
-      <header className="bg-light py-2">
+      <header className="bg-dark py-2">
         <Container>
-          <Row>
+          <Row className="align-items-center">
             <Col xs="12" md className="text-center text-md-left">
-              <Navbar.Brand>
-                Parafertube
-              </Navbar.Brand>
+                <h1 className="text-light">
+                  <MaterialIcon
+                    icon="video_library"
+                    size="medium" invert
+                  />
+                  <span>
+                    Parafertube
+                  </span>
+                </h1>
             </Col>
-            <Col xs="12" md className="text-center text-md-right">
+            <Col xs="12" md className="text-center text-md-right ">
               <Search />
             </Col>
           </Row>
