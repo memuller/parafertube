@@ -7,6 +7,11 @@ import Result from './Result'
 
 class ResultsList extends React.Component {
   
+  /**
+   * renders a list of Result elements,
+   * one for each item on props.results
+   * @returns {JSX} <ul> w/ Result components
+   */
   renderList(){
     const items = this.props.results.map((item) => {
       return (
@@ -20,6 +25,24 @@ class ResultsList extends React.Component {
     )
   }
 
+  /**
+   * renders a notice to be show when no results are found
+   * @returns {JSX} <Card>
+   */
+  renderEmpty() {
+    return (
+      <Card bg='warning' text='white'>
+        <Card.Body>
+          No results found.
+        </Card.Body>
+      </Card>
+    )
+  }
+
+  /**
+   * renders a notice to be show when no searches have been made yet
+   * @returns {JSX} <Card>
+   */
   renderInitial() {
     return (
       <Card bg="light">
@@ -33,8 +56,13 @@ class ResultsList extends React.Component {
 
   render(){
     let content
+
     if (!this.props.hasSearched){
       content = this.renderInitial()
+    
+    } else if(this.props.results.length === 0) {
+      content = this.renderEmpty()
+    
     } else {
       content = this.renderList()
     }
