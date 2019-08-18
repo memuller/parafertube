@@ -2,6 +2,8 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
+import { Card } from 'react-bootstrap'
+
 class ResultsList extends React.Component {
   
   renderList(){
@@ -14,10 +16,24 @@ class ResultsList extends React.Component {
     })
   }
 
-  render(){
-    let 
-      content = this.renderList()
+  renderInitial() {
+    return (
+      <Card bg="light">
+        <Card.Body>
+          No results yet. <br/>
+          Search something!
+        </Card.Body>
+      </Card>
+    )
+  }
 
+  render(){
+    let content
+    if (!this.props.hasSearched){
+      content = this.renderInitial()
+    } else {
+      content = this.renderList()
+    }
     return(
       <div id="results">
         {content}
