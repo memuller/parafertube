@@ -13,7 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="bg-dark py-2">
+        <header className="bg-dark py-2 mb-4">
           <Container>
             <Row className="align-items-center">
               <Col xs="12" md className="text-center text-md-left">
@@ -33,8 +33,14 @@ class App extends React.Component {
             </Row>
           </Container>
         </header>
-        <article>
-          <ResultsList />
+        <article className="p-2">
+          <Row>
+            <Col xs="12" md="6">
+              <ResultsList />
+            </Col>
+            <Col xs="12" md="6">
+            </Col>
+          </Row>
         </article>
       </div>
     );
