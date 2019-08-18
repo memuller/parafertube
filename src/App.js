@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 
 import Search from './components/Search'
 import ResultsList from './components/ResultsList'
+import Player from './components/Player';
 
 class App extends React.Component {
 
@@ -39,6 +40,7 @@ class App extends React.Component {
               <ResultsList />
             </Col>
             <Col xs="12" md="6">
+              <Player/>
             </Col>
           </Row>
         </article>
