@@ -21,7 +21,7 @@ class Result extends React.Component {
 
   render(){
     return (
-      <Media as="li" className="result mb-2" onClick={this.selectVideo}>
+      <Media as="li" className="result mb-4" onClick={this.selectVideo}>
         <img src={this.props.data.snippet.thumbnails.default.url}
         alt="thumbnail" className="mr-2"
         />
