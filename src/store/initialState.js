@@ -1,6 +1,6 @@
 const initialState = {
   results: [],
-  searchTerms: null
+  searchTerms: ""
 }
 
 export default initialState
