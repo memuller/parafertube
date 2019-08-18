@@ -36,10 +36,10 @@ class App extends React.Component {
         </header>
         <article className="p-2">
           <Row>
-            <Col xs="12" md="6">
+            <Col xs="12" md="6" xl="4">
               <ResultsList />
             </Col>
-            <Col xs="12" md="6">
+            <Col xs="12" md="6" xl="8" className="order-first order-md-2 mb-4 mb-md-0">
               <Player/>
             </Col>
           </Row>
@@ -49,7 +49,8 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = (state) => ({
-  results: state.results
+  results: state.results,
+  showPlayer: state.selectedVideoId !== null
 })
 
 export default connect(
