@@ -4,6 +4,7 @@ export const SELECT_VIDEO = 'SELECT_VIDEO'
 export const SET_LOADING = 'SET_LOADING'
 export const SET_ERROR = 'SET_ERROR'
 export const SET_RESULTS = 'SET_RESULTS'
+export const SET_TERMS = 'SET_TERMS'
 export const FETCH_RESULTS = 'FETCH_RESULTS'
 
 
@@ -15,7 +16,20 @@ export const FETCH_RESULTS = 'FETCH_RESULTS'
 export function setResults(results) {
   return {
     type: SET_RESULTS,
-    id: results
+    results: results
+  }
+}
+
+
+/**
+ * sets current search terms
+ * @createsAction SET_TERMS
+ * @param {string} terms 
+ */
+export function setTerms(terms) {
+  return {
+    type: SET_TERMS,
+    terms: terms
   }
 }
 

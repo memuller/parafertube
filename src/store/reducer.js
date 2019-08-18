@@ -1,16 +1,21 @@
 import {
-  SET_RESULTS
+  SET_RESULTS,
+  SET_TERMS
 } from './actions'
 import initialState from './initialState'
 
-export function reducer(state = initialState, action){
+export default function reducer(state = initialState, action){
   switch(action.type) {
     case SET_RESULTS:
       return {
         ...state,
         results: action.results
       }
-
+    case SET_TERMS:
+      return {
+        ...state,
+        searchTerms: action.terms
+      }
     default:
       return state
   }
