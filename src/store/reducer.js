@@ -9,6 +9,7 @@ export default function reducer(state = initialState, action){
     case SET_RESULTS:
       return {
         ...state,
+        numSearches: state.numSearches + 1,
         results: action.results
       }
     case SET_TERMS:
