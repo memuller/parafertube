@@ -3,17 +3,21 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { Card } from 'react-bootstrap'
+import Result from './Result'
 
 class ResultsList extends React.Component {
   
   renderList(){
-    return this.props.results.map((item) => {
+    const items = this.props.results.map((item) => {
       return (
-        <div key={item.id.videoId}>
-          {item.snippet.title}
-        </div>
+        <Result key={item.id.videoId} data={item} />
       )
     })
+    return (
+      <ul className="list-unstyled">
+        {items}
+      </ul>
+    )
   }
 
   renderInitial() {
