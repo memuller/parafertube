@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 import initialState from './initialState'
 import reducer from './reducer'
 
-createStore(
+export default createStore(
   reducer,
   initialState,
   applyMiddleware(thunk)
