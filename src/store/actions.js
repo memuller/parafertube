@@ -7,7 +7,6 @@ export const SET_RESULTS = 'SET_RESULTS'
 export const SET_TERMS = 'SET_TERMS'
 export const FETCH_RESULTS = 'FETCH_RESULTS'
 
-
 /**
  * sets currently loaded results
  * @createsAction SET_RESULTS
@@ -19,7 +18,6 @@ export function setResults(results) {
     results: results
   }
 }
-
 
 /**
  * sets current search terms

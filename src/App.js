@@ -6,15 +6,11 @@ import MaterialIcon from 'material-icons-react'
 import { connect } from 'react-redux'
 
 import Search from './components/Search'
+import ResultsList from './components/ResultsList'
 
 class App extends React.Component {
 
   render() {
-    let list = this.props.results.map((item) => {
-      return (
-        <div>{item.snippet.title}</div>
-      )
-    })
     return (
       <div className="App">
         <header className="bg-dark py-2">
@@ -38,7 +34,7 @@ class App extends React.Component {
           </Container>
         </header>
         <article>
-          {list}
+          <ResultsList />
         </article>
       </div>
     );
