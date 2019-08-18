@@ -43,19 +43,43 @@ export function setTerms(terms) {
     terms: terms
   }
 }
+/**
+ * sets current readiness level as LOADING
+ * @createsAction SET_LOADING
+ */
+export function setLoading() {
+  return {
+    type: SET_LOADING
+  }
+}
+/**
+ * sets current readiness level as ERROR
+ * @createsAction SET_ERROR
+ */
+export function setError() {
+  return {
+    type: SET_ERROR
+  }
+}
 
 /**
  * searchs the Youtube API for videos w/ the given
  * search criteria.
  * @createsAction FETCH_RESULTS
- * @dispatches SET_RESULTS 
+ * @dispatches SET_RESULTS, SET_LOADING, SET_ERROR
  */
 export function fetchResults() {
   return async (dispatch, getState) => {
+    dispatch(setLoading())
     const { searchTerms } = getState()
-    const url = `https://www.googleapis.com/youtube/v3/search?part=id,snippet&q=${searchTerms}&maxResults=20&type=video&key=AIzaSyB2qPOWZw7J7GJ5rRjpL_tkfi4shZckQaE`
-
-    const response = await Axios.get(url)
-    dispatch(setResults(response.data.items))
+    const numResults = 5 
+    const url = `https://www.googleapis.com/youtube/v3/search?part=id,snippet&q=${searchTerms}&maxResults=${numResults}&type=video&key=AIzaSyB2qPOWZw7J7GJ5rRjpL_tkfi4shZckQaE`
+    try {
+      const response = await Axios.get(url)
+      dispatch(setResults(response.data.items))
+    } catch(e) {
+      dispatch(setError())
+    }
+    
   }
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import { Card } from 'react-bootstrap'
+import { Card, Spinner } from 'react-bootstrap'
 import Result from './Result'
 
 class ResultsList extends React.Component {
@@ -54,11 +54,41 @@ class ResultsList extends React.Component {
     )
   }
 
+/**
+ * renders a notice to be show when a search error has ocurred
+ * @returns {JSX} <Card> 
+ */
+  renderError(){
+    return (
+      <Card bg="error" text="white">
+        <Card.Body>
+          Something went wrong!
+        </Card.Body>
+      </Card>
+    )
+  }
+
+  /**
+   * renders a spinner to be show when a search is underway
+   * @returns {JSX} <Spinner>
+   */
+  renderLoading(){
+    return (
+      <Spinner animation="border" variant="primary"/>
+    )
+  }
+
   render(){
     let content
 
     if (!this.props.hasSearched){
       content = this.renderInitial()
+
+    } else if (this.props.hasError) {
+      content = this.renderError()
+    
+    } else if (this.props.loading) {
+      content = this.renderLoading()
     
     } else if(this.props.results.length === 0) {
       content = this.renderEmpty()
@@ -77,7 +107,9 @@ class ResultsList extends React.Component {
 
 const mapStateToProps = (state) => ({
   results: state.results,
-  hasSearched: state.numSearches > 0
+  hasSearched: state.numSearches > 0,
+  hasError: state.readiness === -1,
+  loading: state.readiness === 0
 })
 
 export default connect(
