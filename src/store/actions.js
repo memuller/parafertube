@@ -35,11 +35,11 @@ export function setTerms(terms) {
  * searchs the Youtube API for videos w/ the given
  * search criteria.
  * @createsAction FETCH_RESULTS
- * @dispatches SET_RESULTS
- * @param {string} searchTerms 
+ * @dispatches SET_RESULTS 
  */
-export function fetchResults(searchTerms) {
-  return async (dispatch) => {
+export function fetchResults() {
+  return async (dispatch, getState) => {
+    const { searchTerms } = getState()
     const url = `https://www.googleapis.com/youtube/v3/search?part=id,snippet&q=${searchTerms}&maxResults=20&type=video&key=AIzaSyB2qPOWZw7J7GJ5rRjpL_tkfi4shZckQaE`
 
     const response = await Axios.get(url)

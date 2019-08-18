@@ -20,9 +20,7 @@ class Search extends React.Component {
 
   search(event){
     event.preventDefault()
-    this.props.fetchResults(
-      this.props.terms
-    )
+    this.props.fetchResults()
   }
 
   changeTerms(event){
