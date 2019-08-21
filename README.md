@@ -1,5 +1,5 @@
 # Parafertube
-Projeto implementado como parte do processo seletivo da Parafernalha Interativa.
+Projeto implementado como parte do processo seletivo da Parafernália Interativa.
 
 ## Instruções
 
